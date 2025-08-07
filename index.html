@@ -25,6 +25,7 @@
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.05);
             animation: float 20s infinite ease-in-out;
+            pointer-events: none;
         }
 
         .bg-element:nth-child(1) {
@@ -73,7 +74,7 @@
 
         header {
             text-align: center;
-            padding: 40px 0;
+            padding: 40px 0 20px 0;
             animation: slideDown 0.8s ease-out;
         }
 
@@ -90,11 +91,20 @@
 
         .logo-section {
             margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .penguin-emoji {
-            font-size: 100px;
+        .logo-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: white;
+            padding: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             animation: bounce 2s infinite;
+            object-fit: contain;
         }
 
         @keyframes bounce {
@@ -158,6 +168,7 @@
             font-size: 1.5rem;
             margin-bottom: 40px;
             opacity: 0.9;
+            padding: 0 20px;
         }
 
         .gold-chain {
@@ -181,6 +192,7 @@
             gap: 20px;
             flex-wrap: wrap;
             margin: 50px 0;
+            padding: 0 20px;
             animation: fadeIn 1s ease-out 0.5s both;
         }
 
@@ -243,7 +255,7 @@
 
         .cool-section {
             text-align: center;
-            margin: 80px 0;
+            margin: 60px 20px;
             padding: 40px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -272,31 +284,43 @@
             color: rgba(255, 255, 255, 0.9);
             font-size: 1.2rem;
             line-height: 1.8;
-        }
-
-        .sunglasses {
-            display: inline-block;
-            font-size: 3rem;
-            animation: rotate 8s linear infinite;
-        }
-
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         footer {
             text-align: center;
-            padding: 30px 0;
+            padding: 30px 20px;
             color: white;
             opacity: 0.7;
         }
 
+        /* Mobile Responsive Styles */
         @media (max-width: 768px) {
+            .bg-element:nth-child(1) {
+                width: 100px;
+                height: 100px;
+            }
+
+            .bg-element:nth-child(2) {
+                width: 80px;
+                height: 80px;
+            }
+
+            .bg-element:nth-child(3) {
+                width: 60px;
+                height: 60px;
+            }
+
+            header {
+                padding: 30px 0 20px 0;
+            }
+
+            .logo-image {
+                width: 140px;
+                height: 140px;
+            }
+
             h1 {
                 font-size: 2.5rem;
             }
@@ -310,8 +334,62 @@
                 font-size: 1.2rem;
             }
             
+            .links-container {
+                gap: 15px;
+                margin: 40px 0;
+            }
+
             .link-button {
                 padding: 15px 25px;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .cool-section {
+                margin: 40px 15px;
+                padding: 30px 20px;
+            }
+
+            .cool-section h2 {
+                font-size: 2rem;
+            }
+
+            .cool-section p {
+                font-size: 1.1rem;
+                line-height: 1.6;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+                letter-spacing: 1px;
+            }
+
+            .ticker {
+                font-size: 1.3rem;
+                padding: 10px 25px;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+            }
+
+            .logo-image {
+                width: 120px;
+                height: 120px;
+            }
+
+            .link-button {
+                font-size: 0.95rem;
+            }
+
+            .cool-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .cool-section p {
                 font-size: 1rem;
             }
         }
@@ -326,7 +404,8 @@
     <div class="container">
         <header>
             <div class="logo-section">
-                <div class="penguin-emoji">🐧</div>
+                <!-- Replace this src with your actual image URL after uploading to Vercel or a CDN -->
+                <img src="https://i.imgur.com/YOUR-IMAGE-ID.png" alt="Boss of Ibiza Penguin" class="logo-image">
             </div>
             <h1>Boss of Ibiza</h1>
             <div class="ticker">$BOB</div>
@@ -340,28 +419,27 @@
         <div class="links-container">
             <a href="https://x.com/bossofibiza" target="_blank" class="link-button">
                 <svg viewBox="0 0 24 24">
-                    <path d="https://x.com/bossofibiza"/>
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                 </svg>
                 Twitter/X
             </a>
             
             <a href="https://t.me/BossofiBizatokencommunity" target="_blank" class="link-button">
                 <svg viewBox="0 0 24 24">
-                    <path d="https://t.me/BossofiBizatokencommunity"/>
+                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
                 </svg>
                 Telegram
             </a>
             
             <a href="https://dexscreener.com/abstract/0x5af05975e8daecff6b74439843a8c3c2b7a29c3e" target="_blank" class="link-button">
                 <svg viewBox="0 0 24 24">
-                    <path d="https://dexscreener.com/abstract/0x5af05975e8daecff6b74439843a8c3c2b7a29c3e"/>
+                    <path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM7 15h2v-4H7v4zm4 0h2v-7h-2v7zm4 0h2v-3h-2v3z"/>
                 </svg>
                 DexScreener
             </a>
         </div>
 
         <div class="cool-section">
-            <div class="sunglasses">🕶️</div>
             <h2>Welcome to the Party!</h2>
             <p>
                 BOB isn't just another memecoin - it's a lifestyle. Born on the sunny beaches of Ibiza, 

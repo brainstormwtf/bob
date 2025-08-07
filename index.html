@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boss of Ibiza - $BOB</title>
+    <style><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boss of Ibiza - $BOB</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated background elements */
+        .bg-element {
+            position: fixed;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .bg-element:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .bg-element:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 5s;
+        }
+
+        .bg-element:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-30px) rotate(120deg);
+            }
+            66% {
+                transform: translateY(30px) rotate(240deg);
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo-section {
+            margin-bottom: 30px;
+        }
+
+        .penguin-emoji {
+            font-size: 100px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        h1 {
+            font-size: 4rem;
+            color: white;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            margin: 20px 0;
+            letter-spacing: 2px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3),
+                            0 0 20px rgba(255, 255, 255, 0.2);
+            }
+            to {
+                text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3),
+                            0 0 30px rgba(255, 255, 255, 0.4),
+                            0 0 40px rgba(255, 255, 255, 0.2);
+            }
+        }
+
+        .ticker {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 2rem;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .tagline {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .gold-chain {
+            display: inline-block;
+            margin: 0 10px;
+            animation: swing 3s ease-in-out infinite;
+        }
+
+        @keyframes swing {
+            0%, 100% {
+                transform: rotate(-5deg);
+            }
+            50% {
+                transform: rotate(5deg);
+            }
+        }
+
+        .links-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 50px 0;
+            animation: fadeIn 1s ease-out 0.5s both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .link-button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 35px;
+            background: white;
+            color: #10b981;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+
+        .link-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .link-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .link-button svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .cool-section {
+            text-align: center;
+            margin: 80px 0;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            animation: slideUp 1s ease-out 0.8s both;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cool-section h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cool-section p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .sunglasses {
+            display: inline-block;
+            font-size: 3rem;
+            animation: rotate 8s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: white;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .ticker {
+                font-size: 1.5rem;
+                padding: 12px 30px;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .link-button {
+                padding: 15px 25px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated background elements -->
+    <div class="bg-element"></div>
+    <div class="bg-element"></div>
+    <div class="bg-element"></div>
+
+    <div class="container">
+        <header>
+            <div class="logo-section">
+                <div class="penguin-emoji">🐧</div>
+            </div>
+            <h1>Boss of Ibiza</h1>
+            <div class="ticker">$BOB</div>
+            <div class="tagline">
+                <span class="gold-chain">⛓️</span>
+                The Coolest Bird on the Blockchain
+                <span class="gold-chain">⛓️</span>
+            </div>
+        </header>
+
+        <div class="links-container">
+            <a href="https://x.com" target="_blank" class="link-button">
+                <svg viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+                Twitter/X
+            </a>
+            
+            <a href="https://t.me" target="_blank" class="link-button">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+                </svg>
+                Telegram
+            </a>
+            
+            <a href="https://dexscreener.com" target="_blank" class="link-button">
+                <svg viewBox="0 0 24 24">
+                    <path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM7 15h2v-4H7v4zm4 0h2v-7h-2v7zm4 0h2v-3h-2v3z"/>
+                </svg>
+                DexScreener
+            </a>
+        </div>
+
+        <div class="cool-section">
+            <div class="sunglasses">🕶️</div>
+            <h2>Welcome to the Party!</h2>
+            <p>
+                BOB isn't just another memecoin - it's a lifestyle. Born on the sunny beaches of Ibiza, 
+                our penguin knows how to party and make gains. With sick shades and a golden chain, 
+                BOB is here to bring the vibes to the blockchain.
+            </p>
+            <p style="margin-top: 20px;">
+                Join the coolest community in crypto. Because when you're the Boss of Ibiza, 
+                every day is a celebration! 🎉
+            </p>
+        </div>
+
+        <footer>
+            <p>© 2024 Boss of Ibiza | $BOB | Not Financial Advice, Just Good Vibes</p>
+        </footer>
+    </div>
+</body>
+</html>
+        /* ...[all your CSS unchanged]... */
+    </style>
+</head>
+<body>
+    <!-- Animated background elements -->
+    <div class="bg-element"></div>
+    <div class="bg-element"></div>
+    <div class="bg-element"></div>
+
+    <div class="container">
+        <header>
+            <div class="logo-section">
+                <img src="boss-penguin.png" alt="Boss Penguin" style="width:160px; border-radius:50%; box-shadow:0 4px 16px rgba(0,0,0,0.18); margin-bottom:18px;" />
+                <div class="penguin-emoji">🐧</div>
+            </div>
+            <h1>Boss of Ibiza</h1>
+            <div class="ticker">$BOB</div>
+            <div class="tagline">
+                <span class="gold-chain">⛓️</span>
+                The Coolest Bird on the Blockchain
+                <span class="gold-chain">⛓️</span>
+            </div>
+        </header>
+        <!-- ...[rest of your HTML unchanged]... -->
+        <div class="links-container">
+            <!-- ...links... -->
+        </div>
+        <div class="cool-section">
+            <!-- ...welcome text... -->
+        </div>
+        <footer>
+            <p>© 2024 Boss of Ibiza | $BOB | Not Financial Advice, Just Good Vibes</p>
+        </footer>
+    </div>
+</body>
+</html>
